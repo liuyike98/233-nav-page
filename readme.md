@@ -1,4 +1,5 @@
 ## 项目介绍
+![avatar](screenshot.jpg)
 导航页使用vue和jquery制作,纯前台版本,无后台,维护比较方便,基本操作和维护解耦(实现中),有很多想做的地方没有时间做,日后慢慢完善
 ## 使用说明
 直接扔文件到gitee page应该就能运行,详情可见下面demo  
@@ -70,7 +71,8 @@ function bilibili_advice(keyword, callback) {
 使用也非常简单,由于服务器那边采用302跳转方式,所以直接加载进`img`标签即可
 
 ### 演示demo
-DEMO:https://233i.cn/nav_page/
+**DEMO** => https://233i.cn/nav_page/  
+**gitee pages部署**=> https://liuyike233.gitee.io/vue-web-navigation/
 
 ### 其他
 代码写的比较仓促,欢迎提新功能
