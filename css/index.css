@@ -1,0 +1,516 @@
+:root {
+    --left-nav-width: 300px;
+    --center-container-bg-color: #2C2E2F;
+    --left-nav-bg-color: #2C2E2F;
+    --site-box-height: 90px;
+    --site-box-width: 220px;
+    --site-box-icon-height: 48px;
+    --search-engine-radius: 20px;
+
+
+}
+
+* {
+    user-select: none;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#app {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+
+    /* background-image: url("https://api.233i.cn/bing/api.php"); */
+
+    position: relative;
+
+}
+
+#app::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://api.233i.cn/bing/api.php");
+    background-size: cover;
+    z-index: -1;
+}
+
+/* #app::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/assets/th1.jpg");
+    background-size: cover;
+    z-index: -1;
+    animation: bg-animation ease-in 1000ms 1;
+    transform: translate3d(0,0,0);
+
+} */
+
+.main-container {
+    /* animation: bg-animation ease-in 1000ms 1 ;
+    animation-fill-mode: forwards;
+    transform: translate3d(0,0,0); */
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+
+@keyframes bg-animation {
+    from {
+        backdrop-filter: blur(20px);
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    to {
+        backdrop-filter: blur(0px);
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+}
+
+
+
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: transparent;
+}
+
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track {
+
+    background-color: rgba(245, 245, 245, 0);
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+    transition: background-color linear 1000ms;
+
+    background-color: rgba(68, 73, 93, 0.79);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    transition: background-color linear 1000ms;
+
+    background-color: rgba(94, 102, 128, 0.79);
+}
+
+
+
+
+.main-container {
+    height: 100vh;
+    width: 100%;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: row;
+    
+
+}
+
+.left-nav {
+    height: 100%;
+    min-width: var(--left-nav-width);
+    background-color: var(--left-nav-bg-color);
+    /* background-color: red; */
+    box-shadow: 0 0 10px rgba(128, 128, 128, 0.372);
+    z-index: 1000;
+    display: flex;
+    display: none;
+    flex-direction: column;
+}
+
+.left-nav .head-image {
+    height: 100px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: center;
+    /* background-color: red; */
+}
+
+.center-container {
+    width: 100%;
+    /* background-color: var(--center-container-bg-color); */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+
+
+.search-box {
+    --height: 100px;
+    margin-top: 120px;
+    margin-bottom: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    height: var(--height);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.search-engins {
+    position: absolute;
+    width: 130px;
+    /* background-color: red; */
+    height: 40px;
+    display: flex;
+    border-bottom-left-radius: var(--search-engine-radius);
+    border-top-left-radius: var(--search-engine-radius);z-index: 100;
+}
+
+.search-engins .selected-icon {
+    height: 40px;
+    width: 40px;
+    background-size: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.search-engins .engine-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 600;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.search-engins .show-more {
+    margin-left: auto;
+    margin-right: 10px;
+    height: 100%;
+    width: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.search-engins .show-more:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    border: 5px solid white;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    margin-top: 5px;
+
+    /* position: absolute;
+    right: 10px; */
+
+
+}
+
+.search-box .engine-box {
+    width: 100%;
+    background-color: rgba(10, 10, 10, 0.349);
+    backdrop-filter: blur(30px);
+    /* box-shadow: 0 0 20px rgba(177, 177, 177, 0.1); */
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    border-radius: 10px;
+    z-index: 99;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    justify-content: center;
+    outline: none;
+}
+
+.not_show {
+    visibility: hidden;
+    height: 1px !important;
+
+}
+
+.engine-box.show {
+    animation: show-engine-box 1 300ms linear;
+}
+
+
+@keyframes show-engine-box {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform:translateY(0)
+    }
+}
+
+
+
+.engine-box .engine {
+    width: 130px;
+    height: 40px;
+    display: flex;
+    border-radius: 10px;
+    font-size: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(70, 70, 70, 0.55);
+    /* backdrop-filter: blur(10px); */
+    opacity: .6;
+    transition: all linear 200ms;
+    
+}
+
+.engine.not_show {
+    margin: 0;
+}
+
+.engine-box .engine:hover {
+    opacity: 1;
+    transition: all linear 200ms;
+}
+
+.engine-box .engine .icon {
+
+    width: 40px;
+    height: 40px;
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: green;
+    border-radius: 10px;
+
+}
+
+.engine-box .engine .name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    flex-grow: 1;
+    margin-right: 15px;
+    color: rgba(255, 255, 255);
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 14px;
+
+}
+
+#search-input {
+    --height: 40px;
+    border: none;
+    border-radius: var(--search-engine-radius);
+    border-bottom-left-radius: calc(var(--search-engine-radius) + 2px);
+    border-top-left-radius: calc(var(--search-engine-radius) + 2px);
+    outline: none;
+    height: var(--height);
+    width: 40vw;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 150px;
+    padding-right: 110px;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.637);
+    backdrop-filter: blur(20px);
+    font-weight: 600;
+}
+
+
+
+.search-btn {
+    position: absolute;
+    right: 0;
+    background-image: url(../assets/searchEngineIcons/search-btn.svg);
+    background-size: 30%;
+    width: 70px;
+    height: 40px;
+    top: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: var(--search-engine-radius);
+    transition: all linear 200ms;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.342);
+
+}
+
+.search-btn:hover {
+    background-color: rgba(255, 255, 255, 0.712);
+    transition: all linear 200ms;
+}
+
+
+.sites-container {
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 100px;
+
+}
+
+.kind-name {
+    margin-top: 20px;
+    font-size: 17px;
+    color: white;
+    font-weight: 600;
+    height: 40px;
+    line-height: 40px;
+    display: flex;
+    padding-left: 50px;
+}
+
+.kind-name .icon {
+    width: 30px;
+    height: 30px;
+    background-color: rgb(77, 77, 77);
+    margin-right: 10px;
+    border-radius: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.sites-box {
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+
+}
+
+.site-box {
+    height: var(--site-box-height);
+    width: var(--site-box-width);
+    background-color: #61616167;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    transition: all ease-out 200ms;
+
+}
+
+.site-box:hover {
+    transition: all ease-in 200ms;
+    background-color: #85858580;
+    /* transform: translate3d(0,0,0); */
+    backdrop-filter: blur(10px);
+    transform: translateY(-8px);
+}
+
+.site-box .icon {
+    height: var(--site-box-icon-height);
+    width: var(--site-box-icon-height);
+    min-height: var(--site-box-icon-height);
+    min-width: var(--site-box-icon-height);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 20px;
+    border-radius: 100%;
+    background-color: royalblue;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-image: url("../assets/loading.svg");
+}
+
+.site-box .info {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.site-box .name {
+    margin-top: 15px;
+    color: white;
+    font-weight: 200;
+    letter-spacing: 1px;
+}
+
+.site-box .describe {
+    margin-top: 3px;
+    color: rgb(201, 201, 201);
+    flex-grow: 1;
+    width: calc(100% / .8);
+    height: fit-content;
+    font-size: 18px;
+    line-height: 24px;
+    transform: scale(.7);
+    transform-origin: left top;
+    margin-right: 10px;
+    /* 省略号 */
+    word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    font-weight: 200;
+}
+
+.site-box.not_show {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.advice_box {
+    width: 100%;
+    background-color: rgba(12, 12, 12, 0.607);
+
+    backdrop-filter: blur(20px);
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    border-radius: 10px;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    outline: none;
+    height: fit-content;
+    overflow: hidden;
+
+}
+
+.advice_box .advice_item {
+    color: rgb(228, 228, 228);
+    font-weight: 600;
+    font-size: 14px;
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+
+    transition: background-color ease-out 60ms;
+}
+
+
+
+.advice_box .advice_item.selected {
+    transition: background-color ease-in 60ms;
+    background-color: rgba(0, 83, 238, 0.609);
+}

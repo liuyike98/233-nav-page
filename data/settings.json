@@ -1,0 +1,57 @@
+{
+    "headImage": "https://www.baidu.com/img/flexible/logo/pc/result.png",
+    "setBingBackground":true,
+    "searchEngine": {
+        "selected": "baidu",
+        "engines": {
+            "baidu": {
+                "name": "百度",
+                "mainColor": "#2932E1",
+                "textColor": "white",
+                "icon": "./assets/searchEngineIcons/baidu.svg",
+                "api": "https://www.baidu.com/s?wd=%keyword%",
+                "advice_func":"baidu_advice"
+            },
+            "bilibili": {
+                "name": "哔哩哔哩",
+                "mainColor": "#FB7299",
+                "textColor": "white",
+                "icon": "./assets/searchEngineIcons/bilibili.svg",
+                "api": "https://search.bilibili.com/all?keyword=%keyword%",
+                "advice_func":"bilibili_advice"
+            },
+            "google": {
+                "name": "Google",
+                "mainColor": "#ff6840",
+                "textColor": "white",
+                "icon": "./assets/searchEngineIcons/google.svg",
+                "api": "https://www.google.com/search?q=%keyword%",
+                "advice_func":"google_advice"
+            },
+            "github": {
+                "name": "GitHub",
+                "mainColor": "#434951",
+                "textColor": "white",
+                "icon": "./assets/searchEngineIcons/github.svg",
+                "api": "https://github.com/search?q=%keyword%",
+                "advice_func":"github_advice"
+            },
+            "zhihu": {
+                "name": "知乎",
+                "mainColor": "#0066FF",
+                "textColor": "white",
+                "icon": "./assets/searchEngineIcons/zhihu.svg",
+                "api": "https://www.zhihu.com/search?type=content&q=%keyword%",
+                "advice_func":"zhihu_advice"
+            },
+            "bing": {
+                "name": "必应",
+                "mainColor": "#008373",
+                "textColor": "white",
+                "icon": "./assets/searchEngineIcons/bing.svg",
+                "api": "https://cn.bing.com/search?q=%keyword%",
+                "advice_func":"bing_advice"
+            }
+        }
+    }
+}
