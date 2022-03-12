@@ -6,7 +6,7 @@
 ### 配置文件
 网站配置文件在`data`目录下的`settings.json`文件,在里面可以设置自定义搜索引擎,默认自带6个搜素引擎:`baidu`,`google`,`bing`,`github`,`bilibili`,`zhihu`
 ### 搜索引擎配置
-> 注意搜索引擎接口要把关键词部分替换为%keyword%字段
+> 注意搜索引擎接口要把关键词部分替换为%keyword%字段。
 模板格式如下:
 ```json
 "baidu": {
