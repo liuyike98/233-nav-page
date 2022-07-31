@@ -1,78 +1,30 @@
+[transguide.info](http://www.transguide.info/)
 ## 项目介绍
-![avatar](screenshot.jpg)
-导航页使用vue和jquery制作,纯前台版本,无后台,维护比较方便,基本操作和维护解耦(实现中),有很多想做的地方没有时间做,日后慢慢完善,目的就是给小白一个可以自定义,部署简单无需服务器的小项目.有需要的功能欢迎来提
-## 使用说明
-直接扔文件到gitee page应该就能运行,详情可见下面demo  
-### 配置文件
-网站配置文件在`data`目录下的`settings.json`文件,在里面可以设置自定义搜索引擎,默认自带6个搜素引擎:`baidu`,`google`,`bing`,`github`,`bilibili`,`zhihu`
-### 搜索引擎配置
-> 注意搜索引擎接口要把关键词部分替换为%keyword%字段。
-模板格式如下:
-```json
-"baidu": {
-    "name": "百度",
-    "mainColor": "#2932E1",
-    "textColor": "white",
-    "icon": "./assets/searchEngineIcons/baidu.svg",
-    "api": "https://www.baidu.com/s?wd=%keyword%",
-    "advice_func":"baidu_advice"
-}
-```
-`mainColor`:该引擎主题色,`textColor`:文本色(浮于主题色上方)  
-注意:若要实现搜索建议功能,请使用jsonp的接口:
-1. 编写回调函数,将函数名放入以上配置如:`baidu_advice`
-2. 在js目录下增加该函数,需指定两个参数`(keywords,callback)`
-例如哔哩哔哩的`实时搜索建议`功能这样编写即可:
-```js
-function bilibili_advice(keyword, callback) {
-    let url = "https://s.search.bilibili.com/main/suggest?func=suggest&suggest_type=accurate&tag_num=10&jsonp=jsonp&callback=sb&term=" + keyword;
-    if (window.baidu_advice_ajax) {
-        window.baidu_advice_ajax.abort()
-    }
-    if (keyword === "") {
-        callback([]);
-        return;
-    }
-    window.baidu_advice_ajax = $.ajax({
-        url: url,
-        data: "",
-        type: "GET",
-        dataType: "jsonp",
-        jsonpCallback: "sb",
-        success: function (data) {
-            let temp_arr = []
-            for (const key in data) {
-                temp_arr.push(data[key].value)
-            }
-            callback(temp_arr)
-        },
-        error: function (e) {
-            callback([])
-        }
-    });
-}
-```
+这里是TransGuide，是一个或许可以给部分跨性别群体提供导航的地方。
 
-注意在ajax请求成功后,将关键词作为数组,call一下`callback()`函数就可以了,若请求失败返回空数组`[]`就可以了
-### 网站列表配置
+跨性别（跨儿）：跨性别女性（MtF）、跨性别男性（FtM）、非二院/性别酷儿、跨性者、跨装者、间性人等性别多元群体。
 
-首页的网站列表在`data`目录下的`sites.json`文件配置,存放二级分类,子项目格式如下:
-```json
-{
-    "name": "233博客",
-    "icon": "./assets/icon.ico",
-    "url": "https://233i.cn/",
-    "describe": "本站作者常年拖更的博客"
-}
-```
-只需修改这两个文件就可以自定义实用功能.后续会增加更多的功能接口  
-### 网页背景
-没有单独写进配置文件,默认是跟随bing壁纸每日更新,实用的我服务器上的api,接口地址:https://api.233i.cn/bing/api.php
-使用也非常简单,由于服务器那边采用302跳转方式,所以直接加载进`img`标签即可
+## 致谢
+本项目修改自[233-nav-page](https://github.com/liuyike98/233-nav-page)
+本项目在编写过程中参考了诸多资料以及友蛅，在此一并致谢。
 
-### 演示demo
-**DEMO** => https://233i.cn/nav_page/  
-**gitee pages部署**=> https://liuyike233.gitee.io/vue-web-navigation/
+## 版权声明
+## 版权声明
 
-### 其他
-代码写的比较仓促,欢迎提新功能
+[![知识共享许可协议][https://i.creativecommons.org/l/by-sa/4.0/88x31.png]][https://creativecommons.org/licenses/by-sa/4.0]
+
+除特别注明外，项目中除了代码部分均采用 [(Creative Commons BY-SA 4.0) 知识共享署名 - 相同方式共享 4.0 国际许可协议][[cc-url](https://creativecommons.org/licenses/by-sa/4.0)] 进行许可。
+
+换言之，使用过程中您可以自由地共享、演绎，但是必须署名、以相同方式共享、分享时没有附加限制，
+
+## 联系我们
+Twitter [![Twitter][badge-twitter]](https://twitter.com/moelin-mtf)
+
+GitHub [![GitHub issues][badge-gh-issues]](https://github.com/Moelin-MtF/Moelin-Mtf.github.io/issues/new/choose)
+
+邮件 <moelin.mtf@gmail.com>
+
+[bandge-t]:https://img.shields.io/twitter/follow/moelin_mtf?style=flat-square
+[bandge-g-i]:https://img.shields.io/github/issues/Moelin-MtF/Moelin-MtF.github.io?style=flat-square
+[bandge-g-s]:https://img.shields.io/github/stars/Moelin-MtF/Moelin-MtF.github.io.svg?style=flat-square&label=Stars
+[bandge-g-w]:https://img.shields.io/github/watchers/Moelin-MtF/Moelin-MtF.github.io.svg?style=flat-square&label=Watch
