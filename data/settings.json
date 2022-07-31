@@ -2,7 +2,7 @@
     "headImage": "https://www.baidu.com/img/flexible/logo/pc/result.png",
     "setBingBackground":true,
     "searchEngine": {
-        "selected": "baidu",
+        "selected": "bing",
         "engines": {
             "baidu": {
                 "name": "百度",
